@@ -84,7 +84,8 @@ class _HomeScreenState extends State<HomeScreen>
         title: Container(
           margin: const EdgeInsets.only(
               // left: 10.0,
-              // bottom: 20,
+              top: 20,
+              bottom: 20,
               // right: 10.0,
               ),
           decoration: BoxDecoration(

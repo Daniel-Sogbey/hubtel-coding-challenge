@@ -15,7 +15,7 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 0, right: 10, top: 10,left: 10),
+      margin: const EdgeInsets.only(bottom: 0, right: 10, top: 30,left: 10),
       width: MediaQuery.of(context).size.width * 0.72,
       height: 60,
       // padding: const EdgeInsets.only(left: 0, right: 0, bottom: 7.5,top: 7.5),
