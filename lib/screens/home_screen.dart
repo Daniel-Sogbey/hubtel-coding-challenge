@@ -261,11 +261,14 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 title: term,
                 search: () => _search(term.text),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.tune_outlined,
-                  size: 40,
+              Container(
+                margin: const EdgeInsets.only( top: 20),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.tune_outlined,
+                    size: 40,
+                  ),
                 ),
               )
             ],
