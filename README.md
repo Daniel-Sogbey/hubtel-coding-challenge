@@ -1,16 +1,12 @@
 # hubtel_code_challenge
 
-A new Flutter project.
+#### Showcase
+| Homepage | | Add notes Page |
+| :---: | --- | :---: |
+| <img src="images/screen_home.png" width="300"> || <img src="images/screen_add.png" width="300"> |
+| Simple homepage layout that lists <br> notes created by user || Adding a new note <br> it asks for title and notes |
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Onboard | | Sign Up |
+| :---: | --- | :---: |
+| <img src="images/screen_onboard.png" width="300"> || <img src="images/screen_auth.png" width="300"> |
+| Simple onboarding page to <br> tell you about the app|| Simple sign Up page for  <br> user authentication |
