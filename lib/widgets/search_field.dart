@@ -35,7 +35,7 @@ class SearchField extends StatelessWidget {
           // labelText: "Search talent",
           labelStyle: const TextStyle(
             fontSize: 14,
-            fontWeight: FontWeight.w200,
+            fontWeight: FontWeight.w400,
             color: Colors.black54,
           ),
           enabledBorder: OutlineInputBorder(
@@ -56,7 +56,7 @@ class SearchField extends StatelessWidget {
           hintStyle: const TextStyle(
             color: Colors.black54,
             fontSize: 14,
-            fontWeight: FontWeight.w200,
+            fontWeight: FontWeight.w400,
           ),
           prefixIcon: const Icon(
             Icons.search,
