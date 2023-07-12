@@ -36,12 +36,14 @@ class CardItem extends StatelessWidget {
                         height: 50,
                       ),
                     ),
-                    const SizedBox(width: 10,),
+                    const SizedBox(
+                      width: 10,
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          cardItemModel.accountType,
+                          cardItemModel.accountName,
                           style: const TextStyle(
                             fontSize: 14,
                           ),
@@ -62,14 +64,15 @@ class CardItem extends StatelessWidget {
                 ),
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Container(
                     margin: const EdgeInsets.only(
-                        bottom: 0, right: 8, top: 10, left: 16),
+                        bottom: 0, right: 0, top: 10, left: 16),
                     // width: MediaQuery.of(context).size.width * 0.3,
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 13, vertical: 7),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
                     decoration: BoxDecoration(
                         color: cardItemModel.status == "Successful"
                             ? Colors.green[50]
@@ -80,6 +83,7 @@ class CardItem extends StatelessWidget {
                                 ? Colors.green[50]!
                                 : Colors.red[300]!)),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
                           decoration: BoxDecoration(
@@ -132,31 +136,42 @@ class CardItem extends StatelessWidget {
           ),
           const Divider(),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const CircleAvatar(
-                child: Icon(
-                  Icons.person,
-                  color: Colors.blueAccent,
-                ),
+              Row(
+                children: [
+                  const CircleAvatar(
+                    child: Icon(
+                      Icons.person,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Text(cardItemModel.type),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    "•",
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.grey[400],
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text("Cool your heart wai"),
+                ],
               ),
-              const SizedBox(
-                width: 15,
-              ),
-              Text(cardItemModel.type),
-              const SizedBox(
-                width: 15,
-              ),
-              Text(
-                "•",
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.grey[400],
-                ),
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              const Text("Cool your heart wai")
+              cardItemModel.starred == true
+                  ? const Icon(
+                      Icons.star,
+                      color: Colors.yellow,
+                    )
+                  : Container()
             ],
           )
         ],

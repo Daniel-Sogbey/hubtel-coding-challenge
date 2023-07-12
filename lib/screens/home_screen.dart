@@ -17,29 +17,35 @@ class _HomeScreenState extends State<HomeScreen>
 
   final List<CardItemModel> cardItems = [
     CardItemModel(
-        number: "055 815 9629",
-        type: "Personal",
-        avatar: "images/absa.png",
-        accountType: "Absa Bank",
-        amount: 500,
-        status: "Failed",
-        time: "14:45PM"),
+      number: "055 815 9629",
+      type: "Personal",
+      avatar: "images/absa.png",
+      accountName: "Absa Bank",
+      amount: 500,
+      status: "Failed",
+      time: "14:45PM",
+      starred: true,
+    ),
     CardItemModel(
-        number: "055 815 9629",
-        type: "other",
-        avatar: "images/momo.jpeg",
-        accountType: "Emmanuel Rockson",
-        amount: 500,
-        status: "Successful",
-        time: "14:45PM"),
+      number: "055 815 9629",
+      type: "other",
+      avatar: "images/momo.jpeg",
+      accountName: "Emmanuel Rockson",
+      amount: 500,
+      status: "Successful",
+      time: "14:45PM",
+      starred: false,
+    ),
     CardItemModel(
-        number: "055 815 9629",
-        type: "other",
-        avatar: "images/momo.jpeg",
-        accountType: "Emmanuel Rockson",
-        amount: 500,
-        status: "Successful",
-        time: "14:45PM"),
+      number: "055 815 9629",
+      type: "other",
+      avatar: "images/momo.jpeg",
+      accountName: "Emmanuel Rockson",
+      amount: 500,
+      status: "Successful",
+      time: "14:45PM",
+      starred: true,
+    ),
   ];
 
   String _action = "history";
@@ -83,11 +89,11 @@ class _HomeScreenState extends State<HomeScreen>
       appBar: AppBar(
         title: Container(
           margin: const EdgeInsets.only(
-              // left: 10.0,
-              top: 20,
-              bottom: 20,
-              // right: 10.0,
-              ),
+            // left: 10.0,
+            top: 20,
+            bottom: 20,
+            // right: 10.0,
+          ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             // color: const Color(0xFFCCCCCC),
@@ -262,7 +268,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 search: () => _search(term.text),
               ),
               Container(
-                margin: const EdgeInsets.only( top: 20),
+                margin: const EdgeInsets.only(top: 20),
                 child: IconButton(
                   onPressed: () {},
                   icon: const Icon(
