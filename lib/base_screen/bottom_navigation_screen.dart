@@ -105,13 +105,13 @@ class _BottomNavigationBaseScreenState
                     color: Colors.green[200],
                   ),
                   child: Icon(
-                    Icons.send_time_extension,
+                    Icons.send_time_extension_outlined,
                     size: 30,
                     color: Colors.grey[800]!,
                   ),
                 )
                     : Icon(
-                  Icons.send_time_extension,
+                  Icons.send_time_extension_outlined,
                   size: 50,
                   color: Colors.grey[800]!,
                 ),
@@ -126,7 +126,7 @@ class _BottomNavigationBaseScreenState
               ],
             )
                 : const Icon(
-              Icons.send_time_extension,
+              Icons.send_time_extension_outlined,
               color: Colors.grey,
             ),
           ),
