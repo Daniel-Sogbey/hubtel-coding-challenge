@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen>
       _isLoading = true;
     });
 
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _isLoading = false;
       });
@@ -190,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       body: _isLoading
           ? Center(
-              child: LoadingSpinner(),
+              child: LoadingSpinner(width: 30,height: 30,),
             )
           : SafeArea(
               child: _action == "history"
