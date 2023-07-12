@@ -207,6 +207,7 @@ class _HomeScreenState extends State<HomeScreen>
               Icon(
                 Icons.add_circle_outlined,
                 color: Colors.white,
+                size: 30,
               ),
               SizedBox(width: 5),
               Text(
