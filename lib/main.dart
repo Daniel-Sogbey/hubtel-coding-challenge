@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hubtel_code_challenge/screens/home_screen.dart';
 
+import 'base_screen/bottom_navigation_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -36,13 +38,15 @@ class MyApp extends StatelessWidget {
         // ),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: BottomNavigationBaseScreen(),
       routes: {
 
       },
     );
   }
 }
+
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});

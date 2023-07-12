@@ -6,6 +6,7 @@ class CardItemModel {
   int amount;
   String type;
   String status;
+  String time;
 
   CardItemModel({
     required this.number,
@@ -14,5 +15,6 @@ class CardItemModel {
     required this.accountType,
     required this.amount,
     required this.status,
+    required this.time,
   });
 }

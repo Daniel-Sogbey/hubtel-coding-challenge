@@ -17,30 +17,32 @@ class _HomeScreenState extends State<HomeScreen>
 
   final List<CardItemModel> cardItems = [
     CardItemModel(
-      number: "055 815 9629",
-      type: "Personal",
-      avatar: "/images/absa.png",
-      accountType: "Absa Bank",
-      amount: 500,
-      status: "failed",
-    ),
+        number: "055 815 9629",
+        type: "Personal",
+        avatar: "images/absa.png",
+        accountType: "Absa Bank",
+        amount: 500,
+        status: "Failed",
+        time: "14:45PM"),
     CardItemModel(
-      number: "055 815 9629",
-      type: "other",
-      avatar: "/images/momo.jpg",
-      accountType: "Emmanuel Rockson",
-      amount: 500,
-      status: "successful",
-    ),
+        number: "055 815 9629",
+        type: "other",
+        avatar: "images/momo.jpeg",
+        accountType: "Emmanuel Rockson",
+        amount: 500,
+        status: "Successful",
+        time: "14:45PM"),
     CardItemModel(
-      number: "055 815 9629",
-      type: "other",
-      avatar: "/images/momo.jpg",
-      accountType: "Emmanuel Rockson",
-      amount: 500,
-      status: "successful",
-    ),
+        number: "055 815 9629",
+        type: "other",
+        avatar: "images/momo.jpeg",
+        accountType: "Emmanuel Rockson",
+        amount: 500,
+        status: "Successful",
+        time: "14:45PM"),
   ];
+
+  String _action = "history";
 
   @override
   void initState() {
@@ -67,12 +69,10 @@ class _HomeScreenState extends State<HomeScreen>
       _isLoading = true;
     });
 
-    Future.delayed(const Duration(seconds: 1),(){
+    Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         _isLoading = false;
       });
-
-
     });
     super.didChangeDependencies();
   }
@@ -81,44 +81,145 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
-        bottom: TabBar(
-          controller: _tabController,
-          indicator: _buildIndicatorDecoration(),
-          indicatorPadding: EdgeInsets.zero,
-          tabs: tabs.map((String tab) {
-            return Tab(
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 12.0),
-                child: Text(
-                  tab,
-                  style: const TextStyle(fontSize: 16.0),
-                ),
+        title: Container(
+          margin: const EdgeInsets.only(
+              // left: 10.0,
+              // bottom: 20,
+              // right: 10.0,
               ),
-            );
-          }).toList(),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            // color: const Color(0xFFCCCCCC),
+          ),
+          child: Container(
+            // width: MediaQuery.of(context).size.width * 1,
+
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey[200],
+              // color: const Color(0xFFCCCCCC),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _action = "history";
+                    });
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.45,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 13,
+                    ),
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 1,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: _action == "history"
+                          ? Colors.white
+                          : Colors.grey[100],
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "History",
+                          style: TextStyle(
+                            color: _action == "history"
+                                ? Colors.black
+                                : Colors.grey[500],
+                            fontSize: _action != "ts" ? 16 : 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _action = "ts";
+                    });
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.45,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 13,
+                    ),
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 2,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: _action == "ts" ? Colors.white : Colors.grey[100],
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Transaction Summary",
+                          style: TextStyle(
+                            color: _action == "ts"
+                                ? Colors.black
+                                : Colors.grey[500],
+                            fontSize: _action != "ts" ? 14 : 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
       body: _isLoading
           ? Center(
               child: LoadingSpinner(),
             )
-          : TabBarView(
-              controller: _tabController,
-              children: [
-                HistoryScreen(cardItems: cardItems),
-                TransactionSummaryScreen(),
-              ],
+          : SafeArea(
+              child: _action == "history"
+                  ? HistoryScreen(cardItems: cardItems)
+                  : TransactionSummaryScreen(),
             ),
+      floatingActionButton: Align(
+        alignment: Alignment.bottomCenter,
+        child: FloatingActionButton.extended(
+          backgroundColor: Colors.teal[300],
+          onPressed: () {},
+          label: const Row(
+            children: [
+              Icon(
+                Icons.add_circle_outlined,
+                color: Colors.white,
+              ),
+              SizedBox(width: 5),
+              Text(
+                "SEND NEW",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
 
 class HistoryScreen extends StatefulWidget {
-
   List<CardItemModel> cardItems;
 
-  HistoryScreen({ required this.cardItems});
+  HistoryScreen({required this.cardItems});
 
   @override
   State<HistoryScreen> createState() => _HistoryScreenState();
@@ -138,8 +239,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
     debugPrint("IS FOCUS: $_isFocus");
   }
-
-
 
   @override
   initState() {
@@ -181,7 +280,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             children: [
               Container(
                 margin: const EdgeInsets.only(
-                    bottom: 0, right: 10, top: 10, left: 20),
+                    bottom: 0, right: 10, top: 10, left: 10),
                 width: MediaQuery.of(context).size.width * 0.3,
                 alignment: Alignment.center,
                 padding:
@@ -210,10 +309,15 @@ class _HistoryScreenState extends State<HistoryScreen> {
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return CardItem(cardItemModel : widget.cardItems[index]);
+              return CardItem(cardItemModel: widget.cardItems[index]);
             },
             // 40 list items
             childCount: widget.cardItems.length,
+          ),
+        ),
+        const SliverToBoxAdapter(
+          child: SizedBox(
+            height: 50,
           ),
         ),
       ],
